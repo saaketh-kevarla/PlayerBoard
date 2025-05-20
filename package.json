@@ -1,5 +1,23 @@
 {
   "dependencies": {
+    "express": "^5.1.0",
     "mongoose": "^8.15.0"
-  }
+  },
+  "name": "playerboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mongoConnect.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/saaketh-kevarla/PlayerBoard/issues"
+  },
+  "homepage": "https://github.com/saaketh-kevarla/PlayerBoard#readme"
 }

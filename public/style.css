@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+h2{
+    text-align: center;
+}
+
+#input-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    border: 2px solid orangered;
+    margin-bottom: 50px;
+}
+
+.myinputs{
+    height: 40px;
+    width: 160px;
+    margin: 0px 2.5px;
+    border-color: rgb(229, 201, 197);
+}
+
+#addbutton{
+    height: 40px;
+    width : 120px;
+    background-color: rgb(229, 201, 197);
+    color: white;
+}
+
+#div1{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    border: 2px solid salmon;
+    background-color: rgb(229, 201, 197);
+    height: 60px;
+    /* width: 784px; */
+    min-width: 784px;
+}
+
+
+
+#playerdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#divname{
+    border: 1px solid yellowgreen;
+    width: 170px;
+    margin-right: 60px;
+    text-align: left;
+}
+
+
+#divcountry{
+    border: 1px solid yellowgreen;
+    width: 150px;
+    margin-right: 50px;
+}
+
+
