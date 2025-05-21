@@ -9,9 +9,4 @@ const mySchema = new mongoose.Schema({
 
 const Player = mongoose.model('Player',mySchema);
 
-const Player1 = new Player({
-    FirstName : "Kunal",
-    LastName : "Kevarla",
-    Country : "India",
-    PlayerScore : 99
-})
+export default Player;
