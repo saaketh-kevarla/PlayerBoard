@@ -44,6 +44,7 @@ h2{
     height: 60px;
     /* width: 784px; */
     min-width: 784px;
+    margin: 2.5px;
 }
 
 
@@ -54,12 +55,13 @@ h2{
     justify-content: center;
     align-items: center;
     text-align: center;
+    
 }
 
 #divname{
     border: 1px solid yellowgreen;
     width: 170px;
-    margin-right: 60px;
+    margin-right: 70px;
     text-align: left;
 }
 
@@ -68,6 +70,28 @@ h2{
     border: 1px solid yellowgreen;
     width: 150px;
     margin-right: 50px;
+    text-align: left;
 }
+
+#divscore{
+    margin-right: 60px;
+}
+
+.deletecircle,.addcircle,.subtractcircle{
+    height: 45px;
+    width: 45px;
+    font-size: 10px;
+    border: 1px solid rgb(197, 0, 33);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0px 2.5px;
+    background-color: white;
+
+}
+
+
 
 

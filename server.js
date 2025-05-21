@@ -3,13 +3,18 @@ import mongoose from 'mongoose';
 import path, { dirname } from 'path';
 import url, { fileURLToPath } from 'url';
 import Player from './CreateModel.js';
-import cors from 'cors'
+import dotenv from 'dotenv'
+
+
+dotenv.config()
 
 
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+const Atlas_url = process.env.Atlas_URL;
 
 
 //app.use(cors())
@@ -21,7 +26,7 @@ app.use(express.static(path.join(__dirname,'public')));
 
 const connection = async (req,res) =>{
     try {
-        await mongoose.connect('mongodb+srv://saakethk25:AtlAs123@cluster0.ezfcmba.mongodb.net/PlayerBoard?retryWrites=true&w=majority&appName=Cluster0')
+        await mongoose.connect(Atlas_url)
         console.log('Yipeeeey! connected to Mongo Atlas');
     } catch (error) {
         console.log('caught error',error);

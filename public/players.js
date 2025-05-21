@@ -68,10 +68,32 @@ const DOMdiv = (arr) =>{
     const divscore = document.createElement('div')
     divscore.setAttribute('id','divscore')
     divscore.textContent = player.PlayerScore
+    const divDelete = document.createElement('div')
+    divDelete.setAttribute('class','deletecircle')
+    divDelete.innerText = 'D'
+    const add = document.createElement('div');
+    add.innerText = '+5';
+    add.setAttribute('class','addcircle');
+    const subtract = document.createElement('div');
+    subtract.innerText = '-5';
+    subtract.setAttribute('class','subtractcircle');
+
+
     div1.appendChild(divname);
     div1.appendChild(divcountry);
     div1.appendChild(divscore);
+    div1.appendChild(divDelete);
+    div1.appendChild(add);
+    div1.appendChild(subtract);
     playerdiv.appendChild(div1);
+
+
+    divDelete.addEventListener('click',() =>{
+        console.log('You clicked D button');
+        
+    })
+
+    
 })
 }
 
