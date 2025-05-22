@@ -68,29 +68,84 @@ const DOMdiv = (arr) =>{
     const divscore = document.createElement('div')
     divscore.setAttribute('id','divscore')
     divscore.textContent = player.PlayerScore
+    const circDiv = document.createElement('div')
+    circDiv.setAttribute('id','circDiv')
     const divDelete = document.createElement('div')
-    divDelete.setAttribute('class','deletecircle')
+    divDelete.setAttribute('class','circle')
     divDelete.innerText = 'D'
     const add = document.createElement('div');
     add.innerText = '+5';
-    add.setAttribute('class','addcircle');
+    add.setAttribute('class','circle');
     const subtract = document.createElement('div');
     subtract.innerText = '-5';
-    subtract.setAttribute('class','subtractcircle');
+    subtract.setAttribute('class','circle');
 
 
     div1.appendChild(divname);
     div1.appendChild(divcountry);
     div1.appendChild(divscore);
-    div1.appendChild(divDelete);
-    div1.appendChild(add);
-    div1.appendChild(subtract);
+
+    circDiv.appendChild(divDelete);
+    circDiv.appendChild(add);
+    circDiv.appendChild(subtract);
+    div1.appendChild(circDiv);
     playerdiv.appendChild(div1);
 
 
-    divDelete.addEventListener('click',() =>{
+    divDelete.addEventListener('click',async () =>{
         console.log('You clicked D button');
-        
+        try {
+            const response = await fetch(`http://localhost:8000/api/players`,{
+                method : 'DELETE',
+                headers : {
+                    'Content-Type' : 'text/plain'
+                },
+                body : player.FirstName
+            });
+            const data = await response.json();
+            playerdiv.innerHTML = '';
+            DOMdiv(data);
+
+        } catch (error) {
+            console.log('Failed to delete',error);
+        }
+    })
+
+    add.addEventListener('click',async() =>{
+        console.log('you clicked +5 button');
+
+        try {
+            const response = await fetch(`http://localhost:8000/api/players/${player._id}`,{
+                method : 'PUT',
+                headers : {
+                    'Content-Type': 'application/json',
+                }
+            })
+            const data = await response.json();
+            playerdiv.innerHTML = '';
+            DOMdiv(data)
+        } catch (error) {
+            console.log('error in add button',error);
+        }
+    })
+
+
+    subtract.addEventListener('click',async() =>{
+        console.log('you clicked -5 button');
+
+        try {
+            const response = await fetch(`http://localhost:8000/api/players/subtract/${player._id}`,{
+                method : 'PUT',
+                headers : {
+                    'Content-Type': 'application/json',
+                }
+            })
+            const data = await response.json();
+            playerdiv.innerHTML = '';
+            DOMdiv(data)
+        } catch (error) {
+            console.log('error in add button',error);
+        }
     })
 
     

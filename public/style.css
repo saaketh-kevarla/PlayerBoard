@@ -33,6 +33,7 @@ h2{
     width : 120px;
     background-color: rgb(229, 201, 197);
     color: white;
+    cursor: pointer;
 }
 
 #div1{
@@ -75,9 +76,16 @@ h2{
 
 #divscore{
     margin-right: 60px;
+    border: 1px solid black;
+    height: 40px;
+    width : 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.deletecircle,.addcircle,.subtractcircle{
+
+.circle{
     height: 45px;
     width: 45px;
     font-size: 10px;
@@ -89,7 +97,14 @@ h2{
     text-align: center;
     margin: 0px 2.5px;
     background-color: white;
+    cursor: pointer;
 
+}
+
+#circDiv{
+    margin-left: 40px;
+    display: flex;
+    border: 1px solid rebeccapurple;
 }
 
 

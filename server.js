@@ -40,7 +40,7 @@ app.post('/',async(req,res) =>{
         const myPlayer = new Player(req.body);
         await myPlayer.save()
 
-        const allPlayers = await Player.find();
+        const allPlayers = await Player.find().sort({PlayerScore : -1});
         console.log(req.body);
         console.log(allPlayers);
         res.json(allPlayers)
@@ -52,11 +52,46 @@ app.post('/',async(req,res) =>{
 
 app.get('/api/players',async(req,res) =>{
     try {
-        const allOfEm = await Player.find();
+        const allOfEm = await Player.find().sort({PlayerScore : -1});
         console.log(allOfEm);
         res.json(allOfEm)
     } catch (error) {
         console.log('cant fetch em all',error);
+    }
+})
+
+app.put('/api/players/:id',async(req,res) =>{
+    try {
+        const thatPlayer = await Player.findOne({_id:req.params.id})
+        thatPlayer.PlayerScore += 5;
+        await thatPlayer.save();
+        const allOfEm = await Player.find().sort({PlayerScore : -1});
+        res.json(allOfEm)
+    } catch (error) {
+        console.log('failed to add 5',error);
+    }
+})
+
+app.put('/api/players/subtract/:id',async(req,res) =>{
+    try {
+        const thatPlayer = await Player.findOne({_id:req.params.id})
+        thatPlayer.PlayerScore -= 5;
+        await thatPlayer.save();
+        const allOfEm = await Player.find().sort({PlayerScore : -1});
+        res.json(allOfEm)
+    } catch (error) {
+        console.log('failed to subtract 5',error);
+    }
+})
+
+app.delete('/api/players',async(req,res) =>{
+    try {
+        const delPlayer = await Player.findOne({FirstName : req.body})
+        await Player.deleteOne(delPlayer);
+        const allOfEm = await Player.find().sort({PlayerScore : -1});
+        res.json(allOfEm)
+    } catch (error) {
+        console.log('failed to delete',error);
     }
 })
 
