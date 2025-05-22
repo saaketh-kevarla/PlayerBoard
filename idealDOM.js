@@ -18,7 +18,7 @@ function createPlayerContainer() {
 // Fetch all players from DB and render them
 async function getPlayersFromDB() {
     try {
-        const response = await fetch('http://localhost:8000/api/players');
+        const response = await fetch('/api/players');
         const players = await response.json();
         renderPlayers(players);
     } catch (error) {
@@ -37,7 +37,7 @@ async function handleAddPlayer() {
     };
 
     try {
-        const response = await fetch('http://localhost:8000/', {
+        const response = await fetch('/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ function createPlayerElement(player) {
 
     const deleteBtn = createCircleButton('D', async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/players`, {
+            const response = await fetch(`/api/players`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'text/plain'
@@ -92,7 +92,7 @@ function createPlayerElement(player) {
 
     const addBtn = createCircleButton('+5', async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/players/${player._id}`, {
+            const response = await fetch(`/api/players/${player._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -105,7 +105,7 @@ function createPlayerElement(player) {
 
     const subtractBtn = createCircleButton('-5', async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/players/subtract/${player._id}`, {
+            const response = await fetch(`/api/players/subtract/${player._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' }
             });
