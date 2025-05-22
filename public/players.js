@@ -18,7 +18,7 @@ button1.addEventListener('click',async() =>{
         PlayerScore : input[3].value
     }
     try{
-    const response  = await fetch('http://localhost:8000/',{
+    const response  = await fetch('/',{
         method : 'POST',
         headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ button1.addEventListener('click',async() =>{
 
 const getPlayersDB = async () =>{
     try {
-        const getEmAll = await fetch('http://localhost:8000/api/players') // u need to route a GET
+        const getEmAll = await fetch('/api/players') // u need to route a GET
         let result = await getEmAll.json(); // this parses the string
 
         console.log(result);
@@ -95,7 +95,7 @@ const DOMdiv = (arr) =>{
     divDelete.addEventListener('click',async () =>{
         console.log('You clicked D button');
         try {
-            const response = await fetch(`http://localhost:8000/api/players`,{
+            const response = await fetch(`/api/players`,{
                 method : 'DELETE',
                 headers : {
                     'Content-Type' : 'text/plain'
@@ -115,7 +115,7 @@ const DOMdiv = (arr) =>{
         console.log('you clicked +5 button');
 
         try {
-            const response = await fetch(`http://localhost:8000/api/players/${player._id}`,{
+            const response = await fetch(`/api/players/${player._id}`,{
                 method : 'PUT',
                 headers : {
                     'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ const DOMdiv = (arr) =>{
         console.log('you clicked -5 button');
 
         try {
-            const response = await fetch(`http://localhost:8000/api/players/subtract/${player._id}`,{
+            const response = await fetch(`/api/players/subtract/${player._id}`,{
                 method : 'PUT',
                 headers : {
                     'Content-Type': 'application/json',

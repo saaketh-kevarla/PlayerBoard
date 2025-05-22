@@ -4,6 +4,7 @@ import path, { dirname } from 'path';
 import url, { fileURLToPath } from 'url';
 import Player from './CreateModel.js';
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 
 dotenv.config()
@@ -17,7 +18,7 @@ const __dirname = dirname(__filename);
 const Atlas_url = process.env.Atlas_URL;
 
 
-//app.use(cors())
+app.use(cors())
 app.use(express.json())
 
 app.use(express.static(path.join(__dirname,'public')));
