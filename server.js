@@ -89,7 +89,7 @@ app.put('/api/players/subtract/:id',async(req,res) =>{
 app.delete('/api/players',async(req,res) =>{
     try {
         //const delPlayer = await Player.findOne({FirstName : req.body})
-        await Player.deleteOne({FirstName : req.body});
+        await Player.deleteOne({FirstName : req.body.FirstName});
         const allOfEm = await Player.find().sort({PlayerScore : -1});
         res.json(allOfEm);
     } catch (error) {

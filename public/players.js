@@ -98,9 +98,9 @@ const DOMdiv = (arr) =>{
             const response = await fetch(`/api/players`,{
                 method : 'DELETE',
                 headers : {
-                    'Content-Type' : 'text/plain'
+                    'Content-Type' : 'application/json'
                 },
-                body : player.FirstName
+                body : JSON.stringify({FirstName:player.FirstName})
             });
             const data = await response.json();
             playerdiv.innerHTML = '';
