@@ -5,6 +5,7 @@ import url, { fileURLToPath } from 'url';
 import Player from './CreateModel.js';
 import dotenv from 'dotenv'
 import cors from 'cors'
+const PORT = process.env.PORT || 8000;
 
 
 dotenv.config()
@@ -100,7 +101,7 @@ app.delete('/api/players',async(req,res) =>{
 
 const startServer = async () =>{
     await connection();
-    app.listen(8000, ()=>{
+    app.listen(PORT, ()=>{
     console.log("APP is running on PORT 8000");
 })
 }
